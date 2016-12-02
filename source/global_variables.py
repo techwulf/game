@@ -1,7 +1,3 @@
-import pygame
-from pygame.locals import *
-import sys
-
 NORTH     = 0
 NORTHEAST = 45
 EAST      = 90

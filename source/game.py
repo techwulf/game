@@ -1,14 +1,9 @@
 import pygame
 from pygame.locals import *
 import sys
-import time
-import pyganim
-import interface.window as window
-import avatar.avatar as avatar
-import global_variables
-import interface.keyboard as keyboard
-import interface.instructions as instructions
-import interface.surface as surface
+from entities.avatar import avatar
+from entities.tile import tile
+from interface import window, keyboard, instructions, surface
 
 class Game:
     entities = None
@@ -21,7 +16,10 @@ class Game:
     def __init__(self):
         pygame.init()
         self.window = window.Window()
-        self.entities = [avatar.Avatar()]
+        self.entities = [
+            avatar.Avatar(),
+            tile.Tile()
+        ]
         self.instructions = instructions.Instructions(self.window)
         self.surface = surface.Surface(self.window)
         pygame.display.set_caption(self.window.caption)

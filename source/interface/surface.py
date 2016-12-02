@@ -8,7 +8,6 @@ class Surface:
     flags = 0
     depth = 0
 
-
     def __init__(self, window):
         self.resolution = (window.width, window.height)
 
@@ -20,3 +19,4 @@ class Surface:
 
     def on_render(self):
         self.surface.fill(global_variables.BGCOLOR)
+
