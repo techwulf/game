@@ -4,10 +4,12 @@ import source.global_variables as global_variables
 class Instructions:
     surface = None
     rectangle = None
-    font = None
+    path_to_fonts = "./resources/fonts/"
+    font_family = "hack"
+    font = "Hack-BoldItalic.ttf"
 
     def __init__(self, window):
-        self.font = pygame.font.Font('freesansbold.ttf', 16)
+        self.font = pygame.font.Font(self.path_to_fonts+'/'+self.font_family+'/'+self.font, 16)
 
         self.surface = self.font.render(
             'Arrow keys to move. Hold shift to run.',
