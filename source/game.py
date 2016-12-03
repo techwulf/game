@@ -1,12 +1,11 @@
 import pygame
 from pygame.locals import *
 import sys
-from entities.avatar import avatar
-from entities.tile import tile
+from source.hectare import hectare
 from interface import window, keyboard, instructions, surface
 
 class Game:
-    entities = None
+    hectare = None
     window = None
     surface = None
     clock = None
@@ -16,54 +15,40 @@ class Game:
     def __init__(self):
         pygame.init()
         self.window = window.Window()
-        self.entities = [
-            avatar.Avatar(),
-            tile.Tile()
-        ]
+        self.hectare = hectare.Hectare()
         self.instructions = instructions.Instructions(self.window)
         self.surface = surface.Surface(self.window)
         pygame.display.set_caption(self.window.caption)
 
         self.clock = pygame.time.Clock()
+        pass
 
     def on_quit(self):
         pygame.quit()
         sys.exit()
+        pass
 
     def on_event(self):
         for event in pygame.event.get():
             if event.type == QUIT:
                 self.on_quit()
             keyboard.KEYBOARD.key_event(event)
+        pass
 
     def on_render(self):
         self.surface.on_render()
-        for entity in self.entities:
-            entity.on_render(
-                self.surface.surface,
-                self.window
-            )
+        self.hectare.on_render(self.surface.surface, self.window)
         self.instructions.on_render(self.surface.surface)
         pygame.display.update()
+        pass
 
     def on_loop(self):
         while True:
             if keyboard.KEYBOARD.ESCAPE == True:
                 self.on_quit()
-            for entity in self.entities:
-                entity.on_loop()
+            self.hectare.on_loop()
             self.on_event()
             self.on_render()
-            self.boundary_check()
+            self.hectare.boundary_check(self.window)
             self.clock.tick(self.frames_per_second)
-
-    def boundary_check(self):
-        for entity in self.entities:
-            if entity.position.x < 0:
-                entity.position.x = 0
-            if entity.position.x > self.window.width - entity.width:
-                entity.position.x = self.window.width - entity.width
-            if entity.position.y < 0:
-                entity.position.y = 0
-            if entity.position.y > self.window.height - entity.height:
-                entity.position.y = self.window.height - entity.height
+        pass

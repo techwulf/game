@@ -1,4 +1,5 @@
 run_data = {
+    "entity_name" : "avatar",
     "action" : "run",
     "animations" : [
         {

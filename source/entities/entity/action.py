@@ -3,25 +3,27 @@ import animation
 
 class Action:
     name = None
+    entity_name = None
     north = None
     east = None
     west = None
     south = None
 
     def __init__(self, data):
+        self.entity_name = data["entity_name"]
         self.assign_directions(data)
         pass
 
     def assign_directions(self, data):
         for ani in data["animations"]:
             if ani["direction"] == "north":
-                self.north = animation.Animation(data["action"], ani["direction"], ani["frames"])
+                self.north = animation.Animation(data["entity_name"], data["action"], ani["direction"], ani["frames"])
             elif ani["direction"] == "east":
-                self.east = animation.Animation(data["action"], ani["direction"], ani["frames"])
+                self.east = animation.Animation(data["entity_name"], data["action"], ani["direction"], ani["frames"])
             elif ani["direction"] == "south":
-                self.south = animation.Animation(data["action"], ani["direction"], ani["frames"])
+                self.south = animation.Animation(data["entity_name"], data["action"], ani["direction"], ani["frames"])
             elif ani["direction"] == "west":
-                self.west = animation.Animation(data["action"], ani["direction"], ani["frames"])
+                self.west = animation.Animation(data["entity_name"], data["action"], ani["direction"], ani["frames"])
             else:
                 print("Error: Avatar Animations Action not valid option")
 

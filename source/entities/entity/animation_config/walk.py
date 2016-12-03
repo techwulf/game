@@ -1,4 +1,5 @@
 walk_data = {
+    "entity_name" : "entity",
     "action" : "walk",
     "animations" : [
         {

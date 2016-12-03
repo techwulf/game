@@ -1,4 +1,5 @@
 stand_data = {
+    "entity_name" : "entity",
     "action" : "stand",
     "animations" : [
         {
