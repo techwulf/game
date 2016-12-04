@@ -2,22 +2,23 @@ import pygame
 from pygame.locals import *
 import sys
 from source.hectare import hectare
-from interface import window, keyboard, instructions, surface
+from interface import window, keyboard, instructions, camera
 
 class Game:
-    hectare = None
-    window = None
-    surface = None
-    clock = None
-    frames_per_second = 30
-    instructions = None
+    camera              = None
+    hectare             = None
+    window              = None
+    clock               = None
+    frames_per_second   = 30
+    instructions        = None
 
     def __init__(self):
         pygame.init()
         self.window = window.Window()
         self.hectare = hectare.Hectare()
         self.instructions = instructions.Instructions(self.window)
-        self.surface = surface.Surface(self.window)
+        self.camera = camera.Camera(self.window)
+        self.camera.set_target(self.hectare.avatar)
         pygame.display.set_caption(self.window.caption)
 
         self.clock = pygame.time.Clock()
@@ -36,10 +37,11 @@ class Game:
         pass
 
     def on_render(self):
-        self.surface.on_render()
-        self.hectare.on_render(self.surface.surface, self.window)
-        self.instructions.on_render(self.surface.surface)
+        self.camera.on_render()
+        self.hectare.on_render(self.camera)
+        self.instructions.on_render(self.camera)
         pygame.display.update()
+        pygame.display.flip()
         pass
 
     def on_loop(self):
@@ -49,6 +51,5 @@ class Game:
             self.hectare.on_loop()
             self.on_event()
             self.on_render()
-            self.hectare.boundary_check(self.window)
             self.clock.tick(self.frames_per_second)
         pass

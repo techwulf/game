@@ -2,7 +2,7 @@ from source import global_variables
 import animation
 
 class Action:
-    name = None
+    action = None
     entity_name = None
     north = None
     east = None
@@ -10,6 +10,7 @@ class Action:
     south = None
 
     def __init__(self, data):
+        self.action = data["action"]
         self.entity_name = data["entity_name"]
         self.assign_directions(data)
         pass
@@ -26,13 +27,15 @@ class Action:
                 self.west = animation.Animation(data["entity_name"], data["action"], ani["direction"], ani["frames"])
             else:
                 print("Error: Avatar Animations Action not valid option")
+        pass
 
-    def render(self, surface, direction, position):
+    def on_render(self, camera, direction, position):
         if direction >= global_variables.NORTHWEST or direction <= global_variables.NORTHEAST:
-            self.north.render(surface, position)
+            self.north.on_render(camera, position)
         elif direction >= global_variables.NORTHEAST and direction <= global_variables.SOUTHEAST:
-            self.east.render(surface, position)
+            self.east.on_render(camera, position)
         elif direction >= global_variables.SOUTHEAST and direction <= global_variables.SOUTHWEST:
-            self.south.render(surface, position)
+            self.south.on_render(camera, position)
         elif direction >= global_variables.SOUTHWEST and direction <= global_variables.NORTHWEST:
-            self.west.render(surface, position)
+            self.west.on_render(camera, position)
+        pass

@@ -1,23 +1,25 @@
 import action
 
-from animation_config import run
 from animation_config import stand
-from animation_config import walk
 
 class EntityView:
     height = None
-    width = None
+    width  = None
 
-    stand_action = None
+    animation = None
 
     def __init__(self):
-        self.stand_action = action.Action(stand.stand_data)
-        
         self.height = 32
         self.width = 32
         pass
 
-    def on_render(self, surface, window):
+    def on_render(self, camera):
         if self.velocity() == 0:
-            self.stand_action.render(surface, self.direction, self.position)
+            if self.animation == None or self.animation.action != "stand":
+                self.animation = action.Action(stand.stand_data)
+            self.animation.on_render(
+                camera,
+                self.direction,
+                self.position - camera.position
+            )
         pass

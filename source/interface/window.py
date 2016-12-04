@@ -1,7 +1,9 @@
+import pygame
+
 class Window:
-    width = 640
-    height = 480
+    resolution = None
     caption = "Demo"
 
     def __init__(self):
-        print("")
+        self.resolution = pygame.math.Vector3(800, 600, 0)
+        pass

@@ -17,7 +17,7 @@ class EntityModel:
     move_state = MoveState.STAND
 
     def __init__(self):
-        self.position = pygame.math.Vector3(300, 200, 0)
+        self.position = pygame.math.Vector3(0, 0, 0)
         pass
 
     def velocity(self):
