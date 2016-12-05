@@ -20,29 +20,13 @@ class TileView(entity_view.EntityView):
         pass
 
     def on_render(self, camera):
-        """
-        import pygame
-        pygame.draw.rect(
-            camera.surface,
-            (self.r, self.g, self.b),
-            [
-                self.position.x - camera.position.x,
-                self.position.y - camera.position.y,
-                self.width,
-                self.height,
-            ],
-            2
+        if self.animation == None or self.animation.action != "stand":
+            self.animation = action.Action(stand.stand_data)
+        self.animation.on_render(
+            camera,
+            self.direction,
+            self.position - camera.position
         )
-        """
-        
-        if self.velocity() == 0:
-            if self.animation == None or self.animation.action != "stand":
-                self.animation = action.Action(stand.stand_data)
-            self.animation.on_render(
-                camera,
-                self.direction,
-                self.position - camera.position
-            )
         
         pass
 

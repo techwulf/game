@@ -1,10 +1,10 @@
 from source import global_variables
 from source.interface import keyboard
-from source.abstract.entity import entity_controller
+from source.abstract.animate_entity import animate_entity_controller
 
-class AvatarController(entity_controller.EntityController):
+class AvatarController(animate_entity_controller.AnimateEntityController):
     def __init__(self):
-        entity_controller.EntityController.__init__(self)
+        animate_entity_controller.AnimateEntityController.__init__(self)
         pass
 
     def on_loop(self):
@@ -48,3 +48,4 @@ class AvatarController(entity_controller.EntityController):
                 self.direction = global_variables.SOUTHWEST
 
         self.translate()
+        pass
