@@ -1,4 +1,4 @@
-from source.pyganim import pyganim
+from lib.pyganim import pyganim
 
 class Animation:
     entity_name = None
