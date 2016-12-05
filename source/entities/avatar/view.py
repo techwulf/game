@@ -1,15 +1,15 @@
 import pygame
 
 from source.action import action
-from source.abstract.animate_entity import animate_entity_view
+from source.abstract.entities.animate import view
 
 from animation_config import run
 from animation_config import stand
 from animation_config import walk
 
-class AvatarView(animate_entity_view.AnimateEntityView):
+class View(view.View):
     def __init__(self):
-        animate_entity_view.AnimateEntityView.__init__(self)
+        view.View.__init__(self)
 
         self.height = 74
         self.width = 32

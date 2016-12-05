@@ -2,7 +2,7 @@ from source.action import action
 
 from animation_config import stand
 
-class EntityView:
+class View:
     height = None
     width  = None
 

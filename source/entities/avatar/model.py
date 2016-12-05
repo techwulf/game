@@ -1,13 +1,13 @@
-from source.abstract.animate_entity import animate_entity_model
+from source.abstract.entities.animate import model
 
 class MoveState():
     STAND = 0
     WALK = 1
     RUN = 2
 
-class AvatarModel(animate_entity_model.AnimateEntityModel):
+class Model(model.Model):
     def __init__(self):
-        animate_entity_model.AnimateEntityModel.__init__(self)
+        model.Model.__init__(self)
         pass
 
     def run(self):

@@ -1,9 +1,7 @@
-import avatar_controller
-import avatar_model
-import avatar_view
+import controller, model, view
 
-class Avatar(avatar_controller.AvatarController, avatar_model.AvatarModel, avatar_view.AvatarView):
+class Avatar(controller.Controller, model.Model, view.View):
     def __init__(self):
-        avatar_controller.AvatarController.__init__(self)
-        avatar_model.AvatarModel.__init__(self)
-        avatar_view.AvatarView.__init__(self)
+        controller.Controller.__init__(self)
+        model.Model.__init__(self)
+        view.View.__init__(self)

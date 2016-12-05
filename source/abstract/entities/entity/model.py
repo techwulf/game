@@ -4,7 +4,7 @@ import math
 class MoveState():
     STAND = 0
 
-class EntityModel:
+class Model:
     position = None
 
     direction = 0

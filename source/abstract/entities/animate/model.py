@@ -1,19 +1,19 @@
 import pygame
 import math
 
-from source.abstract.entity import entity_model
+from source.abstract.entities.entity import model
 
 class MoveState():
     STAND = 0
     WALK = 1
     RUN = 2
 
-class AnimateEntityModel(entity_model.EntityModel):
+class Model(model.Model):
     velocity_base = 4
     max_velocity = velocity_base * 2
 
     def __init__(self):
-        entity_model.EntityModel.__init__(self)
+        model.Model.__init__(self)
         pass
     
     def velocity(self):

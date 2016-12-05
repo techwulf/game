@@ -1,10 +1,10 @@
 from source import global_variables
 from source.interface import keyboard
-from source.abstract.animate_entity import animate_entity_controller
+from source.abstract.entities.animate import controller
 
-class AvatarController(animate_entity_controller.AnimateEntityController):
+class Controller(controller.Controller):
     def __init__(self):
-        animate_entity_controller.AnimateEntityController.__init__(self)
+        controller.Controller.__init__(self)
         pass
 
     def on_loop(self):

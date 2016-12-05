@@ -1,10 +1,8 @@
-import rock_controller
-import rock_model
-import rock_view
+import controller, model, view
 
-class Rock(rock_controller.RockController, rock_model.RockModel, rock_view.RockView):
+class Rock(controller.Controller, model.Model, view.View):
     def __init__(self):
-        rock_controller.RockController.__init__(self)
-        rock_model.RockModel.__init__(self)
-        rock_view.RockView.__init__(self)
+        controller.Controller.__init__(self)
+        model.Model.__init__(self)
+        view.View.__init__(self)
         pass
