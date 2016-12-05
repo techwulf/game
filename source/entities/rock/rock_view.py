@@ -5,12 +5,12 @@ from animation_config import stand
 
 import random
 
-class TileView(inanimate_entity_view.InanimateEntityView):
+class RockView(inanimate_entity_view.InanimateEntityView):
     def __init__(self):
         inanimate_entity_view.InanimateEntityView.__init__(self)
         self.animation = action.Action(stand.stand_data)
-        self.height = 100
-        self.width = 100
+        self.height = 32
+        self.width = 32
         pass
 
     def on_render(self, camera):
@@ -21,6 +21,5 @@ class TileView(inanimate_entity_view.InanimateEntityView):
             self.direction,
             self.position - camera.position
         )
-        
         pass
 

@@ -1,4 +1,5 @@
 from source.entities.avatar import avatar
+from source.entities.rock import rock
 from source.entities.tile import tile
 
 class Hectare:
@@ -7,9 +8,13 @@ class Hectare:
     ground   = [[]]
     entities = []
     avatar   = None
+    rock     = None
 
     def __init__(self):
         self.avatar = avatar.Avatar()
+        self.rock = rock.Rock()
+        self.rock.position.x = 523
+        self.rock.position.y = 521
 
         self.ground = [[tile.Tile() for x in range(self.w)] for y in range(self.h)]
 
@@ -24,7 +29,8 @@ class Hectare:
             j+=1
 
         self.entities = [
-            self.avatar
+            self.avatar,
+            self.rock
         ]
         pass
 
