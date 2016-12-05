@@ -1,6 +1,4 @@
-from source.entities.entity import entity_view
-
-from source.entities.entity import action
+from source.abstract.entity import entity_view, action
 
 from animation_config import stand
 

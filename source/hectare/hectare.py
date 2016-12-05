@@ -2,8 +2,8 @@ from source.entities.avatar import avatar
 from source.entities.tile import tile
 
 class Hectare:
-    w        = 100
-    h        = 100
+    w        = 10
+    h        = 10
     ground   = [[]]
     entities = []
     avatar   = None
@@ -49,9 +49,7 @@ class Hectare:
         pass
 
     def on_loop(self):
-        ground_slice = self.ground[0:10][0:10]
-
-        for row in ground_slice:
+        for row in self.ground:
             for t in row:
                 t.on_loop()
         

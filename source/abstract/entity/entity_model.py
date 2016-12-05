@@ -3,8 +3,6 @@ import math
 
 class MoveState():
     STAND = 0
-    WALK = 1
-    RUN = 2
 
 class EntityModel:
     position = None
@@ -34,12 +32,6 @@ class EntityModel:
                 math.radians(self.direction)
             )
         )
-
-    def run(self):
-        self.move_state = MoveState.RUN
-
-    def walk(self):
-        self.move_state = MoveState.WALK
 
     def stand(self):
         self.move_state = MoveState.STAND

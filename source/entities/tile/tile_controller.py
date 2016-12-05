@@ -1,4 +1,4 @@
-from source.entities.entity import entity_controller
+from source.abstract.entity import entity_controller
 
 class TileController(entity_controller.EntityController):
     def __init__(self):
