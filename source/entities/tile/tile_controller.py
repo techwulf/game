@@ -1,8 +1,8 @@
-from source.abstract.entity import entity_controller
+from source.abstract.inanimate_entity import inanimate_entity_controller
 
-class TileController(entity_controller.EntityController):
+class TileController(inanimate_entity_controller.InanimateEntityController):
     def __init__(self):
-        entity_controller.EntityController.__init__(self)
+        inanimate_entity_controller.InanimateEntityController.__init__(self)
         pass
 
     def on_loop(self):
