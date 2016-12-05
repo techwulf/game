@@ -1,6 +1,6 @@
 import pygame
 
-from source.abstract.entity import action
+from source.action import action
 from source.abstract.animate_entity import animate_entity_view
 
 from animation_config import run

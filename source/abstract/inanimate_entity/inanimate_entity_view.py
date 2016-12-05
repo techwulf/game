@@ -1,6 +1,7 @@
 import pygame
 
-from source.abstract.entity import entity_view, action
+from source.action import action
+from source.abstract.entity import entity_view
 
 from animation_config import stand
 

@@ -1,5 +1,5 @@
 from source.abstract.inanimate_entity import inanimate_entity_view
-from source.abstract.entity import action
+from source.action import action
 
 from animation_config import stand
 
