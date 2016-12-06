@@ -21,7 +21,7 @@ class Game(app.App):
         pass
 
     def on_render(self):
-        self.camera.on_render()
+        self.camera.fill_surface()
         self.hectare.on_render(self.camera)
         self.instructions.on_render(self.camera)
         self.post_render()

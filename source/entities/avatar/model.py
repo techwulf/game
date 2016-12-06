@@ -6,6 +6,10 @@ class MoveState():
     RUN = 2
 
 class Model(model.Model):
+    hectare = None
+
+    holding = None
+
     def __init__(self):
         model.Model.__init__(self)
         pass
@@ -16,4 +20,7 @@ class Model(model.Model):
 
     def walk(self):
         self.move_state = MoveState.WALK
+        if self.holding != None:
+            self.holding.position.x = self.position.x
+            self.holding.position.y = self.position.y
         pass

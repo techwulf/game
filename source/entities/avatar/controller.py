@@ -47,5 +47,12 @@ class Controller(controller.Controller):
             elif keyboard.KEYBOARD.DOWN == True:
                 self.direction = global_variables.SOUTHWEST
 
+        if keyboard.KEYBOARD.RETURN == True:
+            self.holding = self.hectare.rock
+
+        if keyboard.KEYBOARD.RETURN == False:
+            self.holding = None
+        pass
+
         self.translate()
         pass

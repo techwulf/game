@@ -7,7 +7,7 @@ class Camera:
     center     = None
     resolution = None
     flags      = 0
-    depth      = 0
+    depth      = 32
 
     def __init__(self, window):
         self.position   = pygame.math.Vector3(0, 0, 0)
@@ -16,8 +16,8 @@ class Camera:
 
         self.surface = pygame.display.set_mode(
             (int(self.resolution.x), int(self.resolution.y)),
-            0,
-            32
+            self.flags,
+            self.depth
         )
         pass
 
@@ -25,18 +25,28 @@ class Camera:
         self.position = target.position
         pass
 
-    def on_render(self):
+    def fill_surface(self):
         self.surface.fill(global_variables.BGCOLOR)
         pass
 
-    def in_viewport(self, obj):
-        x = (self.position.x) - obj.width
-        y = (self.position.y) - obj.height
-        w = (self.position.x + self.resolution.x)
-        h = (self.position.y + self.resolution.y)
+    def render_object(self, obj, obj_position):
+        obj.blit(
+            self.surface,
+            (
+                obj_position.x - self.position.x + (self.resolution.x / 2),
+                obj_position.y - self.position.y + (self.resolution.y / 2)
+            )
+        )
+        pass
 
-        if obj.position.x > x and obj.position.x < w:
-            if obj.position.y > y and obj.position.y < h:
+    def in_viewport(self, obj):
+        x = self.position.x - (self.resolution.x / 2)
+        y = self.position.y - (self.resolution.y / 2)
+        w = self.position.x + (self.resolution.y / 2)
+        h = self.position.y + (self.resolution.y / 2)
+
+        if obj.position.x > x or obj.position.x < w:
+            if obj.position.y > y or obj.position.y < h:
                 return True
         obj.animation = None
         return False

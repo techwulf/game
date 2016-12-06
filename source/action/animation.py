@@ -9,11 +9,11 @@ class Animation:
     directory = None
     move_conductor = None
 
-    def __init__(self, _entity_name, _action, _direction, _frames):
-        self.entity_name = _entity_name
-        self.action = _action
-        self.direction = _direction
-        self.load_frames(_frames)
+    def __init__(self, data, animation):
+        self.entity_name    = data["entity_name"]
+        self.action         = data["action"]
+        self.direction      = animation["direction"]
+        self.load_frames(animation["frames"])
         pass
     
     def path_to_animations(self):
@@ -30,13 +30,7 @@ class Animation:
         self.move_conductor = pyganim.PygConductor(self.animation_object)
         pass
 
-    def on_render(self, camera, position):
+    def on_render(self, camera, obj):
         self.move_conductor.play()
-        self.animation_object.blit(
-            camera.surface,
-            (
-                position.x,
-                position.y
-            )
-        )
+        camera.render_object(self.animation_object, obj.position)
         pass

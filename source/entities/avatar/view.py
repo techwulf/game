@@ -19,15 +19,15 @@ class View(view.View):
         if self.velocity() == 0:
             if self.animation == None or self.animation.action != "stand":
                 self.animation = action.Action(stand.stand_data)
-            self.animation.on_render(camera, self.direction, camera.center)
+            self.animation.on_render(camera, self)
         elif self.velocity() <= self.velocity_base:
             if self.animation == None or self.animation.action != "walk":
                 self.animation = action.Action(walk.walk_data)
-            self.animation.on_render(camera, self.direction, camera.center)
+            self.animation.on_render(camera, self)
         elif self.velocity() <= self.max_velocity:
             if self.animation == None or self.animation.action != "run":
                 self.animation = action.Action(run.run_data)
-            self.animation.on_render(camera, self.direction, camera.center)
+            self.animation.on_render(camera, self)
         else:
             print("Entity.on_render() invalid option.")
         pass

@@ -14,12 +14,6 @@ class View(view.View):
         pass
 
     def on_render(self, camera):
-        if self.animation == None or self.animation.action != "stand":
-            self.animation = action.Action(stand.stand_data)
-        self.animation.on_render(
-            camera,
-            self.direction,
-            self.position - camera.position
-        )
+        self.animation.on_render(camera, self)
         pass
 
