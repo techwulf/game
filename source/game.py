@@ -2,33 +2,26 @@ import pygame
 from pygame.locals import *
 import sys
 from source.abstract.app import app
-from source.hectare import hectare
-from interface import window, keyboard, instructions, camera
+from interface import window
+from source.environment.planet import planet
 
 class Game(app.App):
-    camera              = None
-    hectare             = None
-    window              = None
-    instructions        = None
+    window          = None
+    planet          = None
 
     def __init__(self):
         app.App.__init__(self)
         self.window = window.Window()
-        self.hectare = hectare.Hectare()
-        self.instructions = instructions.Instructions(self.window)
-        self.camera = camera.Camera(self.window)
-        self.camera.set_target(self.hectare.avatar)
+        self.planet = planet.Planet(self.window)
         pass
 
     def on_render(self):
-        self.camera.fill_surface()
-        self.hectare.on_render(self.camera)
-        self.instructions.on_render(self.camera)
+        self.planet.on_render()
         self.post_render()
         pass
 
     def on_loop(self):
         while True:
             app.App.on_loop(self)
-            self.hectare.on_loop()
+            self.planet.on_loop()
         pass
