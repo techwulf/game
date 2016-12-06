@@ -27,7 +27,6 @@ class Hectare:
 
     def populate_ground_tiles(self):
         self.ground = [[tile.Tile() for x in range(self.w)] for y in range(self.h)]
-
         i = 0
         j = 0
         for row in self.ground:
@@ -40,16 +39,23 @@ class Hectare:
         pass
 
     def get_renderable_tiles(self, camera):
-        tile_size = 100 #TODO: Bad magic numbers
-        x = int(camera.position.x + (camera.resolution.x / 2) / tile_size)
-        y = int(camera.position.y / tile_size)
-        w = int((camera.position.x + camera.resolution.x) / tile_size) + 1
-        h = int((camera.position.y + camera.resolution.y) / tile_size) + 1
-        return list(map(lambda row: row[x:w], self.ground[y:h]))
+        tile_width = self.ground[0][0].width
+        tile_height = self.ground[0][0].height
+        x = int((camera.position.x - (camera.resolution.x / 2)) / tile_width)
+        y = int((camera.position.y - (camera.resolution.y / 2)) / tile_height)
+        w = int(camera.resolution.x / tile_width)
+        h = int(camera.resolution.y / tile_height)
+
+        if x <= 0:
+            x=0
+        if y <= 0:
+            y=0
+        
+        l = list(map(lambda row: row[x:x+w+1], self.ground[y:y+h+1]))
+        return l
 
     def on_render(self, camera):
-        for row in self.ground:
-        #for row in self.get_renderable_tiles(camera):
+        for row in self.get_renderable_tiles(camera):
             for t in row:
                 if camera.in_viewport(t):
                     t.on_render(camera)
