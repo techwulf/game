@@ -12,10 +12,12 @@ class Model(model.Model):
     velocity_base = 4
     max_velocity = velocity_base * 2
 
-    vision = 1000
+    vision = 800
+    resolution = None
 
     def __init__(self):
         model.Model.__init__(self)
+        self.resolution = pygame.math.Vector3(self.vision, self.vision, 0)
         pass
     
     def velocity(self):
