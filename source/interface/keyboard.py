@@ -8,6 +8,7 @@ class Keyboard:
     DOWN = False
     LEFT = False
     RIGHT = False
+    ENTER = False
 
     def key_event(self, event):
         if event.type == KEYDOWN:
@@ -16,11 +17,7 @@ class Keyboard:
             self.on_key_up(event.key)
 
     def on_key_down(self, key):
-        if key == K_ESCAPE:
-            self.ESCAPE = True
-        elif key == K_LSHIFT:
-            self.L_SHIFT = True
-        elif key == K_UP:
+        if key == K_UP:
             self.UP = True
         elif key == K_DOWN:
             self.DOWN = True
@@ -28,13 +25,15 @@ class Keyboard:
             self.LEFT = True
         elif key == K_RIGHT:
             self.RIGHT = True
-    
-    def on_key_up(self, key):
-        if key == K_ESCAPE:
-            self.L_ESCAPE = False
+        elif key == K_ESCAPE:
+            self.ESCAPE = True
         elif key == K_LSHIFT:
-            self.L_SHIFT = False
-        elif key == K_UP:
+            self.L_SHIFT = True
+        elif key == K_RETURN:
+            self.RETURN = True
+
+    def on_key_up(self, key):
+        if key == K_UP:
             self.UP = False
         elif key == K_DOWN:
             self.DOWN = False
@@ -42,5 +41,11 @@ class Keyboard:
             self.LEFT = False
         elif key == K_RIGHT:
             self.RIGHT = False
+        elif key == K_ESCAPE:
+            self.L_ESCAPE = False
+        elif key == K_LSHIFT:
+            self.L_SHIFT = False
+        elif key == K_RETURN:
+            self.RETURN = False
 
 KEYBOARD = Keyboard()
