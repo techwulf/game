@@ -8,7 +8,7 @@ class Keyboard:
     DOWN = False
     LEFT = False
     RIGHT = False
-    ENTER = False
+    RETURN = False
 
     def key_event(self, event):
         if event.type == KEYDOWN:
