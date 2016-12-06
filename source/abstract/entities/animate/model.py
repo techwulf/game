@@ -12,6 +12,8 @@ class Model(model.Model):
     velocity_base = 4
     max_velocity = velocity_base * 2
 
+    vision = 1000
+
     def __init__(self):
         model.Model.__init__(self)
         pass

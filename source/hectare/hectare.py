@@ -56,10 +56,10 @@ class Hectare:
     def get_near_tiles(self):
         tile_width = self.get_tile(0, 0).width
         tile_height = self.get_tile(0, 0).height
-        x = int((self.avatar.position.x - (400)) / tile_width)
-        y = int((self.avatar.position.y - (400)) / tile_height)
-        w = int((self.avatar.position.x + (400)) / tile_width) + 1
-        h = int((self.avatar.position.y + (400)) / tile_height) + 1
+        x = int((self.avatar.position.x - (self.avatar.vision)) / tile_width)
+        y = int((self.avatar.position.y - (self.avatar.vision)) / tile_height)
+        w = int((self.avatar.position.x + (self.avatar.vision)) / tile_width) + 1
+        h = int((self.avatar.position.y + (self.avatar.vision)) / tile_height) + 1
 
         if x <= 0:
             x = 0
