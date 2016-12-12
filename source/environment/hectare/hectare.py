@@ -12,7 +12,7 @@ class Hectare:
 
     def __init__(self):
         self.avatar = avatar.Avatar(self)
-        self.rock = rock.Rock()
+        self.rock = rock.Rock(self)
         self.rock.position.x = 300
         self.rock.position.y = 300
 

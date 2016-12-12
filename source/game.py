@@ -6,8 +6,8 @@ from interface import window
 from source.environment.planet import planet
 
 class Game(app.App):
-    window          = None
-    planet          = None
+    window  = None
+    planet  = None
 
     def __init__(self):
         app.App.__init__(self)

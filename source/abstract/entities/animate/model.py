@@ -15,8 +15,8 @@ class Model(model.Model):
     vision = 800
     resolution = None
 
-    def __init__(self):
-        model.Model.__init__(self)
+    def __init__(self, parent):
+        model.Model.__init__(self, parent)
         self.resolution = pygame.math.Vector3(self.vision, self.vision, 0)
         pass
     

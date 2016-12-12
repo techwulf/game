@@ -7,6 +7,6 @@ class MoveState():
     STAND = 0
 
 class Model(model.Model):
-    def __init__(self):
-        model.Model.__init__(self)
+    def __init__(self, parent):
+        model.Model.__init__(self, parent)
         pass

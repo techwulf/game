@@ -6,12 +6,10 @@ class MoveState():
     RUN = 2
 
 class Model(model.Model):
-    hectare = None
-
     holding = None
 
-    def __init__(self):
-        model.Model.__init__(self)
+    def __init__(self, parent):
+        model.Model.__init__(self, parent)
         pass
 
     def run(self):

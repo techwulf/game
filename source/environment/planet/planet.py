@@ -2,8 +2,8 @@ from source.interface import camera, instructions
 from source.environment.hectare import hectare
 
 class Planet:
-    camera  = None
-    hectare = None
+    camera          = None
+    hectare         = None
     instructions    = None
 
     def __init__(self, window):
@@ -17,6 +17,7 @@ class Planet:
         self.camera.fill_surface()
         self.hectare.on_render(self.camera)
         self.instructions.on_render(self.camera)
+        pass
 
     def on_loop(self):
         self.hectare.on_loop()

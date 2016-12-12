@@ -48,7 +48,7 @@ class Controller(controller.Controller):
                 self.direction = global_variables.SOUTHWEST
 
         if keyboard.KEYBOARD.RETURN == True:
-            self.holding = self.hectare.rock
+            self.holding = self.parent.rock
 
         if keyboard.KEYBOARD.RETURN == False:
             self.holding = None
