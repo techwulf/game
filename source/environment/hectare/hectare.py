@@ -27,7 +27,7 @@ class Hectare:
     def get_tile(self, x, y):
         if x < self.size and y < self.size:
             if self.__tiles[x][y] == None:
-                self.__tiles[x][y] = tile.Tile()
+                self.__tiles[x][y] = tile.Tile(self)
                 self.__tiles[x][y].position.x = (x * self.__tiles[x][y].width)
                 self.__tiles[x][y].position.y = (y * self.__tiles[x][y].height)
             return self.__tiles[x][y]
