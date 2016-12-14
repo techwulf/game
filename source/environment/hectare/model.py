@@ -2,6 +2,7 @@ from source.entities.avatar import avatar
 from source.entities.rock import rock
 from source.entities.tile import tile
 from source.entities.corn import corn
+from source.entities.npc import npc
 
 class Model:
     coordinates     = (0,0)
@@ -9,6 +10,7 @@ class Model:
     entities        = []
     avatar          = None
     corn            = None
+    npc             = None
     rock            = None
     __tiles         = [[None]]
 
@@ -22,12 +24,17 @@ class Model:
         self.corn.position.x = 200
         self.corn.position.y = 200
 
+        self.npc = npc.NPC(self)
+        self.npc.position.x = 100
+        self.npc.position.y = 50
+
         self.populate_ground_tiles()
 
         self.entities = [
             self.avatar,
             self.rock,
-            self.corn
+            self.corn,
+            self.npc
         ]
         pass
 
