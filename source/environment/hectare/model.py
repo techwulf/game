@@ -4,6 +4,7 @@ from source.entities.avatar import avatar
 from source.entities.rock import rock
 from source.entities.tile import tile
 from source.entities.corn import corn
+from source.entities.tomato import tomato
 from source.entities.npc import npc
 from source.entities.solar_panel import solar_panel
 from source.entities.battery import battery
@@ -15,6 +16,7 @@ class Model:
     entities        = []
     avatar          = None
     corn            = None
+    tomato          = None
     npc             = None
     rock            = None
     __tiles         = [[None]]
@@ -39,6 +41,10 @@ class Model:
         self.corn = corn.Corn(self)
         self.corn.position.x = 100
         self.corn.position.y = 200
+        
+        self.tomato = tomato.Tomato(self)
+        self.tomato.position.x = 200
+        self.tomato.position.y = 200
 
         self.npc = npc.NPC(self)
         self.npc.position.x = 0
@@ -70,6 +76,7 @@ class Model:
         self.entities = [
             self.rock,
             self.corn,
+            self.tomato,
             self.npc,
             self.solar_panel_0,
             self.solar_panel_1,
