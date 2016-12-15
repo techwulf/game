@@ -17,41 +17,52 @@ class Model:
     corn            = None
     npc             = None
     rock            = None
-    lightbulb       = None
     __tiles         = [[None]]
 
-    power_grid  = None
+    solar_panel_0    = None
+    solar_panel_1    = None
+    battery         = None
+    lightbulb       = None
+    power_grid      = None
 
     def __init__(self):
         self.power_grid = power_grid.PowerGrid()
 
         self.avatar = avatar.Avatar(self)
+        self.avatar.position.x = 300
+        self.avatar.position.y = 300
+
         self.rock = rock.Rock(self)
-        self.rock.position.x = 300
+        self.rock.position.x = 0
         self.rock.position.y = 300
 
         self.corn = corn.Corn(self)
-        self.corn.position.x = 200
+        self.corn.position.x = 100
         self.corn.position.y = 200
 
         self.npc = npc.NPC(self)
-        self.npc.position.x = 100
-        self.npc.position.y = 50
+        self.npc.position.x = 0
+        self.npc.position.y = 200
 
-        self.solar_panel = solar_panel.SolarPanel(self)
-        self.solar_panel.position.x = 100
-        self.solar_panel.position.y = 200
-        self.power_grid.attach_source(self.solar_panel)
+        self.solar_panel_0 = solar_panel.SolarPanel(self)
+        self.solar_panel_0.position.x = 0
+        self.solar_panel_0.position.y = 0
+        self.power_grid.attach_source(self.solar_panel_0)
+
+        self.solar_panel_1 = solar_panel.SolarPanel(self)
+        self.solar_panel_1.position.x = 0
+        self.solar_panel_1.position.y = 100
+        self.power_grid.attach_source(self.solar_panel_1)
 
         self.battery = battery.Battery(self)
-        self.battery.position.x = 50
-        self.battery.position.y = 200
+        self.battery.position.x = 100
+        self.battery.position.y = 0
         self.battery.charge = 21
         self.power_grid.attach_store(self.battery)
 
         self.lightbulb = lightbulb.LightBulb(self)
-        self.lightbulb.position.x = 50
-        self.lightbulb.position.y = 250
+        self.lightbulb.position.x = 200
+        self.lightbulb.position.y = 0
         self.power_grid.attach_drain(self.lightbulb)
 
         self.populate_ground_tiles()
@@ -60,7 +71,8 @@ class Model:
             self.rock,
             self.corn,
             self.npc,
-            self.solar_panel,
+            self.solar_panel_0,
+            self.solar_panel_1,
             self.battery,
             self.lightbulb,
             self.avatar,
