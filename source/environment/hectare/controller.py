@@ -1,5 +1,3 @@
-
-
 class Controller:
     def __init__(self):
         pass
@@ -26,3 +24,5 @@ class Controller:
         for entity in self.entities:
             entity.on_loop()
         pass
+
+        self.power_grid.on_loop()

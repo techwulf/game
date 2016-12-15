@@ -1,3 +1,5 @@
+from source.systems.power_grid import power_grid
+
 from source.entities.avatar import avatar
 from source.entities.rock import rock
 from source.entities.tile import tile
@@ -18,7 +20,11 @@ class Model:
     lightbulb       = None
     __tiles         = [[None]]
 
+    power_grid  = None
+
     def __init__(self):
+        self.power_grid = power_grid.PowerGrid()
+
         self.avatar = avatar.Avatar(self)
         self.rock = rock.Rock(self)
         self.rock.position.x = 300
@@ -35,15 +41,18 @@ class Model:
         self.solar_panel = solar_panel.SolarPanel(self)
         self.solar_panel.position.x = 100
         self.solar_panel.position.y = 200
+        self.power_grid.attach_source(self.solar_panel)
 
         self.battery = battery.Battery(self)
         self.battery.position.x = 50
         self.battery.position.y = 200
         self.battery.charge = 21
+        self.power_grid.attach_store(self.battery)
 
         self.lightbulb = lightbulb.LightBulb(self)
         self.lightbulb.position.x = 50
         self.lightbulb.position.y = 250
+        self.power_grid.attach_drain(self.lightbulb)
 
         self.populate_ground_tiles()
 

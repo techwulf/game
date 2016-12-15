@@ -12,6 +12,8 @@ class Model(model.Model):
     charge = 0
     charge_state = ChargeState.PERCENT_000
 
+    grid = None
+
     def __init__(self, parent):
         model.Model.__init__(self, parent)
         pass
