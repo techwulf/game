@@ -5,6 +5,7 @@ from source.entities.corn import corn
 from source.entities.npc import npc
 from source.entities.solar_panel import solar_panel
 from source.entities.battery import battery
+from source.entities.lightbulb import lightbulb
 
 class Model:
     coordinates     = (0,0)
@@ -14,6 +15,7 @@ class Model:
     corn            = None
     npc             = None
     rock            = None
+    lightbulb       = None
     __tiles         = [[None]]
 
     def __init__(self):
@@ -39,6 +41,10 @@ class Model:
         self.battery.position.y = 200
         self.battery.charge = 21
 
+        self.lightbulb = lightbulb.LightBulb(self)
+        self.lightbulb.position.x = 50
+        self.lightbulb.position.y = 250
+
         self.populate_ground_tiles()
 
         self.entities = [
@@ -47,6 +53,7 @@ class Model:
             self.npc,
             self.solar_panel,
             self.battery,
+            self.lightbulb,
             self.avatar,
         ]
         pass
