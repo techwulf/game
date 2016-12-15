@@ -3,6 +3,8 @@ from source.entities.rock import rock
 from source.entities.tile import tile
 from source.entities.corn import corn
 from source.entities.npc import npc
+from source.entities.solar_panel import solar_panel
+from source.entities.battery import battery
 
 class Model:
     coordinates     = (0,0)
@@ -28,13 +30,24 @@ class Model:
         self.npc.position.x = 100
         self.npc.position.y = 50
 
+        self.solar_panel = solar_panel.SolarPanel(self)
+        self.solar_panel.position.x = 100
+        self.solar_panel.position.y = 200
+
+        self.battery = battery.Battery(self)
+        self.battery.position.x = 50
+        self.battery.position.y = 200
+        self.battery.charge = 21
+
         self.populate_ground_tiles()
 
         self.entities = [
-            self.avatar,
             self.rock,
             self.corn,
-            self.npc
+            self.npc,
+            self.solar_panel,
+            self.battery,
+            self.avatar,
         ]
         pass
 
