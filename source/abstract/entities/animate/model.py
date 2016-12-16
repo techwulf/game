@@ -9,8 +9,8 @@ class MoveState():
     RUN = 2
 
 class Model(model.Model):
-    velocity_base = 4
-    max_velocity = velocity_base * 2
+    walk_speed = 4
+    run_speed = walk_speed * 2
 
     vision = 800
     resolution = None
@@ -19,9 +19,16 @@ class Model(model.Model):
         model.Model.__init__(self, parent)
         self.resolution = pygame.math.Vector3(self.vision, self.vision, 0)
         pass
-    
+
     def velocity(self):
-        return self.velocity_base * self.move_state
+        if self.move_state == MoveState.STAND:
+            return 0
+        elif self.move_state == MoveState.WALK:
+            return self.walk_speed
+        elif self.move_state == MoveState.RUN:
+            return self.run_speed
+        else:
+            print("Animate.move_state invalid option.")
 
     def translate(self):
         self.position.x = (
