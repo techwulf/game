@@ -1,7 +1,6 @@
-import pygame
-
 from source.action import action
 from source.abstract.entities.animate import view
+from source.abstract.entities.human.model import MoveState
 
 from animation_config import run
 from animation_config import stand
@@ -15,15 +14,15 @@ class View(view.View):
         pass
 
     def on_render(self, camera):
-        if self.velocity() == 0:
+        if self.move_state == MoveState.STAND:
             if self.animation == None or self.animation.action != "stand":
                 self.animation = action.Action(stand.stand_data)
             self.animation.on_render(camera, self)
-        elif self.velocity() <= self.velocity_base:
+        elif self.move_state == MoveState.WALK:
             if self.animation == None or self.animation.action != "walk":
                 self.animation = action.Action(walk.walk_data)
             self.animation.on_render(camera, self)
-        elif self.velocity() <= self.max_velocity:
+        elif self.move_state == MoveState.RUN:
             if self.animation == None or self.animation.action != "run":
                 self.animation = action.Action(run.run_data)
             self.animation.on_render(camera, self)
