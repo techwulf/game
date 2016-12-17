@@ -23,7 +23,6 @@ class ElementalStorageUnit:
         pass
 
     def store_element(self, element):
-        #self.elements.append(element)
         self.tanks[element.name].add_element()
         pass
 
