@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/python2.7
 
 from source.minerals import bauxite, ice
 from source.refinery import refinery

@@ -1,4 +1,4 @@
-#! /usr/bin/python2
+#! /usr/bin/python2.7
 
 import source.game as game
 
