@@ -1,14 +1,8 @@
+import model
+from animation_config import damaged_seed, damaged_sprout, damaged_ripe
+from animation_config import healthy_seed, healthy_sprout, healthy_ripe
 from source.abstract.entities.inanimate import view
 from source.action import action
-
-from animation_config import healthy_seed, healthy_sprout, healthy_ripe
-from animation_config import damaged_seed, damaged_sprout, damaged_ripe
-
-import model
-
-from datetime import datetime
-
-import random
 
 class View(view.View):
     def __init__(self):
