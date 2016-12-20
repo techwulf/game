@@ -28,10 +28,10 @@ class View(view.View):
                 if self.growth_state != model.GrowthState.SPROUT:
                     self.growth_state = model.GrowthState.SPROUT
                     self.animation = action.Action(healthy_sprout.healthy_sprout_data)
-            elif self.created_delta() > 30:
+            elif self.created_delta() > 20:
                 if self.growth_state != model.GrowthState.RIPE:
                     self.growth_state = model.GrowthState.RIPE
-                    self.animation = action.Action(damaged_ripe.damaged_ripe_data)
+                    self.animation = action.Action(healthy_ripe.healthy_ripe_data)
         
         if self.health_state == model.HealthState.DAMAGED:
             if self.created_delta() <= 10:
@@ -42,7 +42,7 @@ class View(view.View):
                 if self.growth_state != model.GrowthState.SPROUT:
                     self.growth_state = model.GrowthState.SPROUT
                     self.animation = action.Action(damaged_sprout.damaged_sprout_data)
-            elif self.created_delta() > 30:
+            elif self.created_delta() > 20:
                 if self.growth_state != model.GrowthState.RIPE:
                     self.growth_state = model.GrowthState.RIPE
                     self.animation = action.Action(damaged_ripe.damaged_ripe_data)
