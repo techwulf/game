@@ -35,11 +35,11 @@ class View(view.View):
             elif self.created_delta() <= 40:
                 if self.growth_state != model.GrowthState.MATURE:
                     self.growth_state = model.GrowthState.MATURE
-                    self.animation = action.Action(healthy_sapling.healthy_sapling_data)
+                    self.animation = action.Action(healthy_mature.healthy_mature_data)
             elif self.created_delta() > 40:
                 if self.growth_state != model.GrowthState.RIPE:
                     self.growth_state = model.GrowthState.RIPE
-                    self.animation = action.Action(damaged_ripe.damaged_ripe_data)
+                    self.animation = action.Action(healthy_ripe.healthy_ripe_data)
         
         if self.health_state == model.HealthState.DAMAGED:
             if self.created_delta() <= 10:
