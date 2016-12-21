@@ -1,4 +1,5 @@
 from libs.pyganim import pyganim
+from source.global_variables.camera import CAMERA
 
 class Animation:
     entity_name = None
@@ -30,7 +31,7 @@ class Animation:
         self.move_conductor = pyganim.PygConductor(self.animation_object)
         pass
 
-    def on_render(self, camera, obj):
+    def on_render(self, obj):
         self.move_conductor.play()
-        camera.render_object(self.animation_object, obj.position)
+        CAMERA.render_object(self.animation_object, obj.position)
         pass

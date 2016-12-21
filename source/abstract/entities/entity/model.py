@@ -25,6 +25,25 @@ class Model:
     
     def stand(self):
         self.move_state = MoveState.STAND
+        pass
 
     def created_delta(self):
         return (datetime.now() - self.created).total_seconds()
+
+    def get_kilometer(self):
+        return (
+            math.floor(self.position.x / 10000),
+            math.floor(self.position.y / 10000)
+        )
+
+    def get_hectare(self):
+        return (
+            math.floor(self.position.x / 1000),
+            math.floor(self.position.y / 1000)
+        )
+
+    def get_tile(self):
+        return (
+            math.floor(self.position.x / 100),
+            math.floor(self.position.y / 100)
+        )

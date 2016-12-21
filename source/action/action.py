@@ -1,4 +1,4 @@
-from source import global_variables
+from source.global_variables import global_variables
 import animation
 
 class Action:
@@ -29,13 +29,13 @@ class Action:
                 print("Error: Avatar Animations Action not valid option")
         pass
 
-    def on_render(self, camera, obj):
+    def on_render(self, obj):
         if obj.direction >= global_variables.NORTHWEST or obj.direction <= global_variables.NORTHEAST:
-            self.north.on_render(camera, obj)
+            self.north.on_render(obj)
         elif obj.direction >= global_variables.NORTHEAST and obj.direction <= global_variables.SOUTHEAST:
-            self.east.on_render(camera, obj)
+            self.east.on_render(obj)
         elif obj.direction >= global_variables.SOUTHEAST and obj.direction <= global_variables.SOUTHWEST:
-            self.south.on_render(camera, obj)
+            self.south.on_render(obj)
         elif obj.direction >= global_variables.SOUTHWEST and obj.direction <= global_variables.NORTHWEST:
-            self.west.on_render(camera, obj)
+            self.west.on_render(obj)
         pass

@@ -8,6 +8,8 @@ class App:
     clock               = None
     frames_per_second   = 30
 
+    universe = None
+
     def __init__(self):
         pygame.init()
         self.clock = pygame.time.Clock()
@@ -25,12 +27,19 @@ class App:
             keyboard.KEYBOARD.key_event(event)
         pass
 
+    def on_render(self):
+        self.universe.on_render()
+        self.post_render()
+        pass
+
     def on_loop(self):
-        if keyboard.KEYBOARD.ESCAPE == True:
-            self.on_quit()
-        self.on_event()
-        self.on_render()
-        self.clock.tick(self.frames_per_second)
+        while True:
+            if keyboard.KEYBOARD.ESCAPE == True:
+                self.on_quit()
+            self.on_event()
+            self.on_render()
+            self.clock.tick(self.frames_per_second)
+            self.universe.on_loop()
         pass
 
     def post_render(self):
