@@ -2,12 +2,12 @@ from source.global_variables import global_variables
 import animation
 
 class Action:
-    action = None
+    action      = None
     entity_name = None
-    north = None
-    east = None
-    west = None
-    south = None
+    north       = None
+    east        = None
+    west        = None
+    south       = None
 
     def __init__(self, data):
         self.action = data["action"]

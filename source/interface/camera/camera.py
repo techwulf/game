@@ -29,9 +29,19 @@ class Camera:
         self.surface.fill(global_variables.BGCOLOR)
         pass
 
-    def render_object(self, obj, obj_position):
+    def render_animation(self, obj, obj_position):
         obj.blit(
             self.surface,
+            (
+                obj_position.x - self.position.x + (self.resolution.x / 2),
+                obj_position.y - self.position.y + (self.resolution.y / 2)
+            )
+        )
+        pass
+
+    def render_frame(self, obj, obj_position):
+        self.surface.blit(
+            obj,
             (
                 obj_position.x - self.position.x + (self.resolution.x / 2),
                 obj_position.y - self.position.y + (self.resolution.y / 2)
