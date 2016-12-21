@@ -13,7 +13,7 @@ class View(view.View):
         self.width = 32
         pass
 
-    def on_render(self, camera):
+    def on_render(self):
         if self.charge < 19:
             if self.charge_state != model.ChargeState.PERCENT_000:
                 self.charge_state = model.ChargeState.PERCENT_000
@@ -39,6 +39,6 @@ class View(view.View):
                 self.charge_state = model.ChargeState.PERCENT_100
                 self.animation = action.Action(percent_100.percent_100_data)
         
-        self.animation.on_render(camera, self)
+        self.animation.on_render(self)
         pass
 

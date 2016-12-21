@@ -13,5 +13,5 @@ class View(view.View):
         self.width = 32
         pass
 
-    def on_render(self, camera):
+    def on_render(self):
         pass

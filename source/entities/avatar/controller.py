@@ -1,4 +1,4 @@
-from source import global_variables
+from source.global_variables import global_variables
 from source.interface import keyboard
 from source.abstract.entities.human import controller
 

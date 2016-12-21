@@ -13,19 +13,19 @@ class View(view.View):
         self.width = 32
         pass
 
-    def on_render(self, camera):
+    def on_render(self):
         if self.move_state == MoveState.STAND:
             if self.animation == None or self.animation.action != "stand":
                 self.animation = action.Action(stand.stand_data)
-            self.animation.on_render(camera, self)
+            self.animation.on_render(self)
         elif self.move_state == MoveState.WALK:
             if self.animation == None or self.animation.action != "walk":
                 self.animation = action.Action(walk.walk_data)
-            self.animation.on_render(camera, self)
+            self.animation.on_render(self)
         elif self.move_state == MoveState.RUN:
             if self.animation == None or self.animation.action != "run":
                 self.animation = action.Action(run.run_data)
-            self.animation.on_render(camera, self)
+            self.animation.on_render(self)
         else:
             print("Human.on_render() invalid option.")
         pass

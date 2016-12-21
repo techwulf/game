@@ -18,7 +18,7 @@ class View(view.View):
         self.width = 32
         pass
 
-    def on_render(self, camera):
+    def on_render(self):
         if self.health_state == model.HealthState.HEALTHY:
             if self.created_delta() <= 10:
                 if self.growth_state != model.GrowthState.SEED:
@@ -47,6 +47,6 @@ class View(view.View):
                     self.growth_state = model.GrowthState.RIPE
                     self.animation = action.Action(damaged_ripe.damaged_ripe_data)
         
-        self.animation.on_render(camera, self)
+        self.animation.on_render(self)
         pass
 

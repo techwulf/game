@@ -1,5 +1,5 @@
 import pygame
-import source.global_variables as global_variables
+from source.global_variables import global_variables
 
 class Camera:
     surface    = None
@@ -9,9 +9,9 @@ class Camera:
     flags      = 0
     depth      = 32
 
-    def __init__(self, window):
+    def __init__(self):
         self.position   = pygame.math.Vector3(0, 0, 0)
-        self.resolution = pygame.math.Vector3(window.resolution.x, window.resolution.y, 0)
+        self.resolution = pygame.math.Vector3(global_variables.RESOLUTION_X, global_variables.RESOLUTION_Y, 0)
         self.center     = pygame.math.Vector3(self.resolution.x / 2, self.resolution.y / 2, 0)
 
         self.surface = pygame.display.set_mode(
