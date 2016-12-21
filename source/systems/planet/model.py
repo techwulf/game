@@ -30,5 +30,4 @@ class Model:
 
     def populate_kilometers(self):
         self.kilometers = [[kilometer.Kilometer(self) for x in range(self.size)] for y in range(self.size)]
-        print(self.kilometers)
         pass

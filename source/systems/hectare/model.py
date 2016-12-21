@@ -1,6 +1,3 @@
-from source.systems.power_grid import power_grid
-
-from source.entities.avatar import avatar
 from source.entities.tile import tile
 
 class Model:
@@ -8,23 +5,12 @@ class Model:
     position    = (0, 0)
     size        = 100
     entities    = []
-    #avatar     = None
     
     __tiles     = [[None]]
 
     def __init__(self, parent):
         self.parent = parent
-        """
-        self.avatar = avatar.Avatar(self)
-        self.avatar.position.x = 300
-        self.avatar.position.y = 300
-        """
         self.populate_tiles()
-        """
-        self.entities = [
-            self.avatar
-        ]
-        """
         pass
 
     def north(self):
