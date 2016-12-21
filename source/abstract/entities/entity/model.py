@@ -1,15 +1,12 @@
 import pygame
-import math, uuid
-from datetime import datetime, timedelta
+#import math, uuid
+#from datetime import datetime, timedelta
+from source.abstract.base_object import base_model
 
 class MoveState():
     STAND = 0
 
-class Model:
-    uuid = None
-    created = None
-    parent = None
-
+class Model(base_model.BaseModel):
     position = None
 
     direction = 0
@@ -17,18 +14,13 @@ class Model:
     move_state = MoveState.STAND
 
     def __init__(self, parent):
-        self.parent = parent
-        self.uuid = uuid.uuid4()
-        self.created = datetime.now()
+        base_model.BaseModel.__init__(self, parent)
         self.position = pygame.math.Vector3(0, 0, 0)
         pass
     
     def stand(self):
         self.move_state = MoveState.STAND
         pass
-
-    def created_delta(self):
-        return (datetime.now() - self.created).total_seconds()
 
     def get_kilometer(self):
         return (
