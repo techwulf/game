@@ -37,7 +37,6 @@ class Animation:
             frames.append(fra)
             self.animation_object = pyganim.PygAnimation(frames)
             self.move_conductor = pyganim.PygConductor(self.animation_object)
-            self.move_conductor.play()
 
     def load_frame(self, f):
         tmp_frame = self.path_to_animations()+self.action+'/'+self.direction+'/'+f[0][0]
@@ -46,6 +45,7 @@ class Animation:
 
     def on_render(self, obj):
         if isinstance(self.animation_object, pyganim.PygAnimation):
+            self.move_conductor.play()
             CAMERA.render_animation(self.animation_object, obj.position)
         else:
             CAMERA.render_frame(self.animation_object, obj.position)
