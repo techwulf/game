@@ -1,6 +1,4 @@
 import pygame
-#import math, uuid
-#from datetime import datetime, timedelta
 from source.abstract.base_object import base_model
 
 class MoveState():

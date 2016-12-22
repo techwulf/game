@@ -1,27 +1,14 @@
 import pygame
 
 class Joystick:
+    subscribers     = []
     joystick    = None
     name        = None
 
     dead_zone   = 0.20
 
-    AXIS_0      = 0
-    AXIS_1      = 0
-    AXIS_2      = 0
-    AXIS_3      = 0
-    BUTTON_0    = None
-    BUTTON_1    = None
-    BUTTON_2    = None
-    BUTTON_3    = None
-    BUTTON_4    = None
-    BUTTON_5    = None
-    BUTTON_6    = None
-    BUTTON_7    = None
-    BUTTON_8    = None
-    BUTTON_9    = None
-    BUTTON_10   = None
-    BUTTON_11   = None
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
 
     def __init__(self):
         pygame.joystick.init()
@@ -51,105 +38,555 @@ class Joystick:
             if axis == 0:
                 value = self.joystick.get_axis(axis)
                 if value > self.dead_zone or value < -self.dead_zone:
-                    self.AXIS_0 = value
+                    AXIS_0.press(value)
                 else:
-                    self.AXIS_0 = 0
+                    AXIS_0.press(0)
             if axis == 1:
                 value = self.joystick.get_axis(axis)
                 if value > self.dead_zone or value < -self.dead_zone:
-                    self.AXIS_1 = value
+                    AXIS_1.press(value)
                 else:
-                    self.AXIS_1 = 0
+                    AXIS_1.press(0)
             if axis == 2:
                 value = self.joystick.get_axis(axis)
                 if value > self.dead_zone or value < -self.dead_zone:
-                    self.AXIS_2 = value
+                    AXIS_2.press(value)
                 else:
-                    self.AXIS_2 = 0
+                    AXIS_2.press(0)
             if axis == 3:
                 value = self.joystick.get_axis(axis)
                 if value > self.dead_zone or value < -self.dead_zone:
-                    self.AXIS_3 = value
+                    AXIS_3.press(value)
                 else:
-                    self.AXIS_3 = 0
-
-    def get_axis_value(self, axis, AXIS):
-        value = self.joystick.get_axis(axis)
-        if value > self.dead_zone or value < -self.dead_zone:
-            AXIS = value
-        else:
-            AXIS = 0
-        pass
+                    AXIS_3.press(0)
 
     def on_hat_motion(self):
         hats = self.joystick.get_numhats()
         for hat in range(hats):
             direction = self.joystick.get_hat(hat)
             if direction[0] == -1:
-                pass
+                print("a")
+                HAT_LEFT.down()
             if direction[0] == 1:
-                pass
+                HAT_RIGHT.down()
             if direction[1] == 1:
-                pass
+                HAT_UP.down()
             if direction[1] == -1:
-                pass
+                HAT_DOWN.down()
         pass
-
 
     def on_button_down(self):
         buttons = self.joystick.get_numbuttons()
         for button in range(buttons):
             if button == 0 and self.joystick.get_button(button):
-                self.BUTTON_0 = True
+                BUTTON_0.down()
             if button == 1 and self.joystick.get_button(button):
-                self.BUTTON_1 = True
+                BUTTON_1.down()
             if button == 2 and self.joystick.get_button(button):
-                self.BUTTON_2 = True
+                BUTTON_2.down()
             if button == 3 and self.joystick.get_button(button):
-                self.BUTTON_3 = True
+                BUTTON_3.down()
             if button == 4 and self.joystick.get_button(button):
-                self.BUTTON_4 = True
+                BUTTON_4.down()
             if button == 5 and self.joystick.get_button(button):
-                self.BUTTON_5 = True
+                BUTTON_5.down()
             if button == 6 and self.joystick.get_button(button):
-                self.BUTTON_6 = True
+                BUTTON_6.down()
             if button == 7 and self.joystick.get_button(button):
-                self.BUTTON_7 = True
+                BUTTON_7.down()
             if button == 8 and self.joystick.get_button(button):
-                self.BUTTON_8 = True
+                BUTTON_8.down()
             if button == 9 and self.joystick.get_button(button):
-                self.BUTTON_9 = True
+                BUTTON_9.down()
             if button == 10 and self.joystick.get_button(button):
-                self.BUTTON_10 = True
+                BUTTON_10.down()
             if button == 11 and self.joystick.get_button(button):
-                self.BUTTON_11 = True
+                BUTTON_11.down()
 
     def on_button_up(self):
         buttons = self.joystick.get_numbuttons()
         for button in range(buttons):
             if button == 0 and self.joystick.get_button(button) == 0:
-                self.BUTTON_0 = False
+                BUTTON_0.up()
             if button == 1 and self.joystick.get_button(button) == 0:
-                self.BUTTON_1 = False
+                BUTTON_1.up()
             if button == 2 and self.joystick.get_button(button) == 0:
-                self.BUTTON_2 = False
+                BUTTON_2.up()
             if button == 3 and self.joystick.get_button(button) == 0:
-                self.BUTTON_3 = False
+                BUTTON_3.up()
             if button == 4 and self.joystick.get_button(button) == 0:
-                self.BUTTON_4 = False
+                BUTTON_4.up()
             if button == 5 and self.joystick.get_button(button) == 0:
-                self.BUTTON_5 = False
+                BUTTON_5.up()
             if button == 6 and self.joystick.get_button(button) == 0:
-                self.BUTTON_6 = False
+                BUTTON_6.up()
             if button == 7 and self.joystick.get_button(button) == 0:
-                self.BUTTON_7 = False
+                BUTTON_7.up()
             if button == 8 and self.joystick.get_button(button) == 0:
-                self.BUTTON_8 = False
+                BUTTON_8.up()
             if button == 9 and self.joystick.get_button(button) == 0:
-                self.BUTTON_9 = False
+                BUTTON_9.up()
             if button == 10 and self.joystick.get_button(button) == 0:
-                self.BUTTON_10 = False
+                BUTTON_10.up()
             if button == 11 and self.joystick.get_button(button) == 0:
-                self.BUTTON_11 = False
+                BUTTON_11.up()
+
+class Axis0:
+    subscribers = []
+    value = 0
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def press(self, value):
+        self.value = value
+        for subscriber in self.subscribers:
+            subscriber.on_axis_0(value)
+        pass
+
+class Axis1:
+    subscribers = []
+    value = 0
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def press(self, value):
+        self.value = value
+        for subscriber in self.subscribers:
+            subscriber.on_axis_1(value)
+        pass
+
+class Axis2:
+    subscribers = []
+    value = 0
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def press(self, value):
+        self.value = value
+        for subscriber in self.subscribers:
+            subscriber.on_axis_2(value)
+        pass
+
+class Axis3:
+    subscribers = []
+    value = 0
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def press(self, value):
+        self.value = value
+        for subscriber in self.subscribers:
+            subscriber.on_axis_3(value)
+        pass
+
+class Button0:
+    subscribers = []
+    value = False
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def up(self):
+        self.value = False
+        for subscriber in self.subscribers:
+            subscriber.on_button_0_up()
+        pass
+
+    def down(self):
+        self.value = True
+        for subscriber in self.subscribers:
+            subscriber.on_button_0_down()
+        pass
+
+class Button1:
+    subscribers = []
+    value = False
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def up(self):
+        self.value = False
+        for subscriber in self.subscribers:
+            subscriber.on_button_1_up()
+        pass
+
+    def down(self):
+        self.value = True
+        for subscriber in self.subscribers:
+            subscriber.on_button_1_down()
+        pass
+
+class Button2:
+    subscribers = []
+    value = False
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def up(self):
+        self.value = False
+        for subscriber in self.subscribers:
+            subscriber.on_button_2_up()
+        pass
+
+    def down(self):
+        self.value = True
+        for subscriber in self.subscribers:
+            subscriber.on_button_2_down()
+        pass
+
+class Button3:
+    subscribers = []
+    value = False
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def up(self):
+        self.value = False
+        for subscriber in self.subscribers:
+            subscriber.on_button_3_up()
+        pass
+
+    def down(self):
+        self.value = True
+        for subscriber in self.subscribers:
+            subscriber.on_button_3_down()
+        pass
+
+class Button4:
+    subscribers = []
+    value = False
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def up(self):
+        self.value = False
+        for subscriber in self.subscribers:
+            subscriber.on_button_4_up()
+        pass
+
+    def down(self):
+        self.value = True
+        for subscriber in self.subscribers:
+            subscriber.on_button_4_down()
+        pass
+
+class Button5:
+    subscribers = []
+    value = False
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def up(self):
+        self.value = False
+        for subscriber in self.subscribers:
+            subscriber.on_button_5_up()
+        pass
+
+    def down(self):
+        self.value = True
+        for subscriber in self.subscribers:
+            subscriber.on_button_5_down()
+        pass
+
+class Button6:
+    subscribers = []
+    value = False
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def up(self):
+        self.value = False
+        for subscriber in self.subscribers:
+            subscriber.on_button_6_up()
+        pass
+
+    def down(self):
+        self.value = True
+        for subscriber in self.subscribers:
+            subscriber.on_button_6_down()
+        pass
+
+class Button7:
+    subscribers = []
+    value = False
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def up(self):
+        self.value = False
+        for subscriber in self.subscribers:
+            subscriber.on_button_7_up()
+        pass
+
+    def down(self):
+        self.value = True
+        for subscriber in self.subscribers:
+            subscriber.on_button_7_down()
+        pass
+
+class Button8:
+    subscribers = []
+    value = False
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def up(self):
+        self.value = False
+        for subscriber in self.subscribers:
+            subscriber.on_button_8_up()
+        pass
+
+    def down(self):
+        self.value = True
+        for subscriber in self.subscribers:
+            subscriber.on_button_8_down()
+        pass
+
+class Button9:
+    subscribers = []
+    value = False
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def up(self):
+        self.value = False
+        for subscriber in self.subscribers:
+            subscriber.on_button_9_up()
+        pass
+
+    def down(self):
+        self.value = True
+        for subscriber in self.subscribers:
+            subscriber.on_button_9_down()
+        pass
+
+class Button10:
+    subscribers = []
+    value = False
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def up(self):
+        self.value = False
+        for subscriber in self.subscribers:
+            subscriber.on_button_10_up()
+        pass
+
+    def down(self):
+        self.value = True
+        for subscriber in self.subscribers:
+            subscriber.on_button_10_down()
+        pass
+
+class Button11:
+    subscribers = []
+    value = False
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def up(self):
+        self.value = False
+        for subscriber in self.subscribers:
+            subscriber.on_button_11_up()
+        pass
+
+    def down(self):
+        self.value = True
+        for subscriber in self.subscribers:
+            subscriber.on_button_11_down()
+        pass
+
+class HatUp:
+    subscribers = []
+    value = False
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def up(self):
+        self.value = False
+        for subscriber in self.subscribers:
+            subscriber.on_hatup_up()
+        pass
+
+    def down(self):
+        self.value = True
+        for subscriber in self.subscribers:
+            subscriber.on_hatdown_up()
+        pass
+
+class HatDown:
+    subscribers = []
+    value = False
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def up(self):
+        self.value = False
+        for subscriber in self.subscribers:
+            subscriber.on_hatup_down()
+        pass
+
+    def down(self):
+        self.value = True
+        for subscriber in self.subscribers:
+            subscriber.on_hatdown_down()
+        pass
+
+class HatLeft:
+    subscribers = []
+    value = False
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def up(self):
+        self.value = False
+        for subscriber in self.subscribers:
+            subscriber.on_hatup_left()
+        pass
+
+    def down(self):
+        self.value = True
+        for subscriber in self.subscribers:
+            subscriber.on_hatdown_left()
+        pass
+
+class HatRight:
+    subscribers = []
+    value = False
+
+    def __init__(self):
+        pass
+
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+
+    def up(self):
+        self.value = False
+        for subscriber in self.subscribers:
+            subscriber.on_hatup_right()
+        pass
+
+    def down(self):
+        self.value = True
+        for subscriber in self.subscribers:
+            subscriber.on_hatdown_right()
+        pass
 
 JOYSTICK = Joystick()
+AXIS_0   = Axis0()
+AXIS_1   = Axis1()
+AXIS_2   = Axis2()
+AXIS_3   = Axis3()
+
+BUTTON_0  = Button0()
+BUTTON_1  = Button1()
+BUTTON_2  = Button2()
+BUTTON_3  = Button3()
+BUTTON_4  = Button4()
+BUTTON_5  = Button5()
+BUTTON_6  = Button6()
+BUTTON_7  = Button7()
+BUTTON_8  = Button8()
+BUTTON_9  = Button9()
+BUTTON_10 = Button10()
+BUTTON_11 = Button11()
+
+HAT_UP    = HatUp()
+HAT_DOWN  = HatDown()
+HAT_LEFT  = HatLeft()
+HAT_RIGHT = HatRight()

@@ -13,6 +13,7 @@ class App:
 
     def __init__(self):
         pygame.init()
+        keyboard.KEY_ESCAPE.subscribe(self)
         self.clock = pygame.time.Clock()
         pass
 
@@ -29,6 +30,12 @@ class App:
             joystick.JOYSTICK.joystick_event(event)
         pass
 
+    def on_keydown_escape(self):
+        pass
+
+    def on_keyup_escape(self):
+        self.on_quit()
+
     def on_render(self):
         self.universe.on_render()
         self.post_render()
@@ -36,8 +43,6 @@ class App:
 
     def on_loop(self):
         while True:
-            if keyboard.KEYBOARD.ESCAPE == True:
-                self.on_quit()
             self.on_event()
             self.on_render()
             self.clock.tick(self.frames_per_second)
