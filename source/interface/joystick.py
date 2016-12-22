@@ -65,7 +65,6 @@ class Joystick:
         for hat in range(hats):
             direction = self.joystick.get_hat(hat)
             if direction[0] == -1:
-                print("a")
                 HAT_LEFT.down()
             if direction[0] == 1:
                 HAT_RIGHT.down()
