@@ -1,14 +1,14 @@
 from pygame.locals import *
 
 class Keyboard:
-    ESCAPE = False
+    ESCAPE  = False
     L_SHIFT = False
     R_SHIFT = False
-    UP = False
-    DOWN = False
-    LEFT = False
-    RIGHT = False
-    RETURN = False
+    UP      = False
+    DOWN    = False
+    LEFT    = False
+    RIGHT   = False
+    RETURN  = False
 
     def key_event(self, event):
         if event.type == KEYDOWN:

@@ -3,6 +3,7 @@ from pygame.locals import *
 import sys
 
 from source.interface import keyboard
+from source.interface import joystick
 
 class App:
     clock               = None
@@ -25,6 +26,7 @@ class App:
             if event.type == QUIT:
                 self.on_quit()
             keyboard.KEYBOARD.key_event(event)
+            joystick.JOYSTICK.joystick_event(event)
         pass
 
     def on_render(self):
