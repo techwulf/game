@@ -16,6 +16,21 @@ class Model(base_model.BaseModel):
         self.position = pygame.math.Vector3(0, 0, 0)
         pass
     
+    def transform(self):
+        self.translate()
+        self.rotate()
+        pass
+
+    def translate(self):
+        self.position += self.speed()
+        pass
+
+    def rotate(self):
+        pass
+
+    def speed(self):
+        return pygame.math.Vector3(0,0,0)
+
     def stand(self):
         self.move_state = MoveState.STAND
         pass

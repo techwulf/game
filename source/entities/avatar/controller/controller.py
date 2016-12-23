@@ -10,7 +10,5 @@ class Controller(controller.Controller, keyboard_events.KeyboardEvents, joystick
         pass
 
     def on_loop(self):
-        self.translate()
-        self.set_animation()
-        self.set_direction()
+        controller.Controller.on_loop(self)
         pass

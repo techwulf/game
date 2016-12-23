@@ -8,4 +8,5 @@ class Controller(controller.Controller):
         pass
 
     def on_loop(self):
+        controller.Controller.on_loop(self)
         pass

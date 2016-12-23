@@ -57,21 +57,15 @@ class KeyboardEvents:
         pass
 
     def on_keydown_left_shift(self):
-        self.start_running()
+        self.run()
         pass
 
     def on_keyup_left_shift(self):
-        self.stop_running()
+        self.walk()
         pass
 
     def on_keydown_return(self):
-        """
-        if keyboard.KEYBOARD.RETURN == True:
-            self.holding = self.parent.rock
-
-        if keyboard.KEYBOARD.RETURN == False:
-            self.holding = None
-        """
+        self.pickup()
         pass
 
     def on_keyup_return(self):

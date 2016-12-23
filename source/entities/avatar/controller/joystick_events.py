@@ -42,11 +42,11 @@ class JoystickEvents:
         pass
 
     def on_button_1_down(self):
-        self.start_running()
+        self.run()
         pass
 
     def on_button_1_up(self):
-        self.stop_running()
+        self.walk()
         pass
 
     def on_button_0_up(self):
