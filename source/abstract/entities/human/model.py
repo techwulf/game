@@ -36,11 +36,23 @@ class Model(model.Model):
             self.holding = None
         pass
 
-    def pickup(self):
+    def pickup(self, item = None):
+        if item != None:
+            self.holding = item
+            self.holding.on_pickup()
+            return True
         if self.holding == None:
             self.holding = self.get_nearest_item()
             if self.holding != None:
                 self.holding.on_pickup()
+            return True
         else:
             self.drop_item()
-        pass
+            return True
+        return False
+
+    def mine(self):
+        from source.entities.rock import rock
+        ore = rock.Rock(self.parent.homestead)
+        self.parent.homestead.entities.append(ore)
+        self.pickup(ore)

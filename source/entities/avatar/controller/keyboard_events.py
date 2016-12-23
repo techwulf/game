@@ -19,6 +19,7 @@ class KeyboardEvents:
         pass
 
     def on_keydown_m(self):
+        self.mine()
         pass
 
     def on_keyup_m(self):
