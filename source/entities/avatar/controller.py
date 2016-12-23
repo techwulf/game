@@ -6,6 +6,8 @@ from source.abstract.entities.human import controller
 class Controller(controller.Controller):
     def __init__(self):
         controller.Controller.__init__(self)
+        keyboard.KEY_A.subscribe(self)
+        keyboard.KEY_M.subscribe(self)
         keyboard.KEY_UP.subscribe(self)
         keyboard.KEY_DOWN.subscribe(self)
         keyboard.KEY_RIGHT.subscribe(self)
@@ -64,6 +66,18 @@ class Controller(controller.Controller):
 
     def on_button_1_up(self):
         self.stop_running()
+        pass
+
+    def on_keydown_a(self):
+        pass
+
+    def on_keyup_a(self):
+        pass
+
+    def on_keydown_m(self):
+        pass
+
+    def on_keyup_m(self):
         pass
 
     def on_keydown_up(self):

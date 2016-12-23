@@ -8,7 +8,11 @@ class Keyboard:
             self.on_key_up(event.key)
 
     def on_key_down(self, key):
-        if key == K_UP:
+        if key == K_a:
+            KEY_A.down()
+        elif key == K_m:
+            KEY_M.down()
+        elif key == K_UP:
             KEY_UP.down()
         elif key == K_DOWN:
             KEY_DOWN.down()
@@ -24,7 +28,11 @@ class Keyboard:
             KEY_RETURN.down()
 
     def on_key_up(self, key):
-        if key == K_UP:
+        if key == K_a:
+            KEY_A.up()
+        elif key == K_m:
+            KEY_M.up()
+        elif key == K_UP:
             KEY_UP.up()
         elif key == K_DOWN:
             KEY_DOWN.up()
@@ -39,17 +47,63 @@ class Keyboard:
         elif key == K_RETURN:
             KEY_RETURN.up()
 
-class KeyUp:
+class KeyA:
     subscribers = []
     value = False
-
+    
     def __init__(self):
         pass
-
+    
     def subscribe(self, subscriber):
         self.subscribers.append(subscriber)
         pass
+    
+    def down(self):
+        self.value = True
+        for subscriber in self.subscribers:
+            subscriber.on_keydown_a()
+        pass
 
+    def up(self):
+        self.value = False
+        for subscriber in self.subscribers:
+            subscriber.on_keyup_a()
+        pass
+
+class KeyM:
+    subscribers = []
+    value = False
+    
+    def __init__(self):
+        pass
+    
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+    
+    def down(self):
+        self.value = True
+        for subscriber in self.subscribers:
+            subscriber.on_keydown_m()
+        pass
+
+    def up(self):
+        self.value = False
+        for subscriber in self.subscribers:
+            subscriber.on_keyup_m()
+        pass
+
+class KeyUp:
+    subscribers = []
+    value = False
+    
+    def __init__(self):
+        pass
+    
+    def subscribe(self, subscriber):
+        self.subscribers.append(subscriber)
+        pass
+    
     def down(self):
         self.value = True
         for subscriber in self.subscribers:
@@ -131,10 +185,10 @@ class KeyRight:
             subscriber.on_keyup_right()
         pass
 
-class KeyEscape():
+class KeyEscape:
     subscribers = []
     value = False
-    
+
     def __init__(self):
         pass
 
@@ -153,7 +207,7 @@ class KeyEscape():
         for subscriber in self.subscribers:
             subscriber.on_keyup_escape()
 
-class KeyReturn():
+class KeyReturn:
     subscribers = []
     value = False
     
@@ -175,7 +229,7 @@ class KeyReturn():
         for subscriber in self.subscribers:
             subscriber.on_keyup_return()
 
-class KeyLShift():
+class KeyLShift:
     subscribers = []
     value = False
     
@@ -198,6 +252,8 @@ class KeyLShift():
             subscriber.on_keyup_left_shift()
 
 KEYBOARD    = Keyboard()
+KEY_A       = KeyA()
+KEY_M       = KeyM()
 KEY_UP      = KeyUp()
 KEY_DOWN    = KeyDown()
 KEY_LEFT    = KeyLeft()
