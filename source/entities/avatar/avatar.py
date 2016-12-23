@@ -1,4 +1,6 @@
-import controller, model, view
+from controller import controller
+from model import model
+from view import view
 
 class Avatar(controller.Controller, model.Model, view.View):
     def __init__(self, parent):
