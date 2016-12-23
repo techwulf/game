@@ -1,6 +1,6 @@
-from source.abstract.mineral import mineral
+from source.abstract.chemistry.chemicals import water
+from source.abstract.chemistry.mineral import mineral
 
-from source.chemicals import water
 
 class Ice(mineral.Mineral):
     name = "Ice"
