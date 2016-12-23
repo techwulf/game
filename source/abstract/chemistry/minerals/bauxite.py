@@ -1,6 +1,8 @@
-from source.abstract.mineral import mineral
+from source.abstract.chemistry.chemicals import goethite, gibbsite, ironII_oxide, hematite, kaolinite
 
-from source.chemicals import goethite, gibbsite, boehmite, ironII_oxide, ironIII_oxide, kaolinite
+from source.abstract.chemistry.chemicals import boehmite
+from source.abstract.chemistry.mineral import mineral
+
 
 class Bauxite(mineral.Mineral):
     name = "Bauxite"
@@ -12,6 +14,6 @@ class Bauxite(mineral.Mineral):
             gibbsite.Gibbsite(),
             boehmite.Boehmite(),
             ironII_oxide.IronIIOxide(),
-            ironIII_oxide.IronIIIOxide(),
+            hematite.Hematite(),
             kaolinite.Kaolinite()
         ]

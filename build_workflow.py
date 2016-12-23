@@ -1,9 +1,10 @@
 #! /usr/bin/python2.7
 
-from source.minerals import bauxite, ice
-from source.refinery import refinery
-from source.elemental_storage_unit import elemental_storage_unit
-from source.replicator import replicator
+from source.abstract.chemistry.minerals import bauxite
+from source.abstract.chemistry.minerals import ice
+from source.entities.elemental_storage_unit import elemental_storage_unit
+from source.entities.refinery import refinery
+from source.entities.replicator import replicator
 
 if __name__ == "__main__":
     esu        = elemental_storage_unit.ElementalStorageUnit()

@@ -1,6 +1,9 @@
 class Chemical:
-    name = None
+    name = None         # in Title Case
+    mass = None         # in g/mol
+    density = None      # in g/ml
     elements = [None]
+    formula = [None]
 
     def __init__(self):
         pass
