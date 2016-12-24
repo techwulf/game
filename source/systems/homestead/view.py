@@ -5,4 +5,5 @@ class View:
     def on_render(self):
         for entity in self.entities:
             entity.on_render()
+        self.logistics.on_render()
         pass

@@ -1,11 +1,21 @@
+from source.abstract.entities.inanimate.model import model
 
+class CapacityState:
+    PERCENT_000 = 0
+    PERCENT_020 = 1
+    PERCENT_040 = 2
+    PERCENT_060 = 3
+    PERCENT_080 = 4
+    PERCENT_100 = 5
 
-class ElementalStorageTank:
+class Model(model.Model):
     element  = None
     units    = 0
     capacity = 10
+    capacity_state = CapacityState.PERCENT_000
 
-    def __init__(self, element):
+    def __init__(self, parent, element):
+        model.Model.__init__(self, parent)
         self.element = element
         pass
 
@@ -19,6 +29,3 @@ class ElementalStorageTank:
 
     def remove_elements(self, amount):
         self.units -= amount
-
-    def pretty_print(self, i=0):
-        print(("\t"*i)+self.element+" "+str(self.units)+"/"+str(self.capacity))
