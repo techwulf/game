@@ -1,13 +1,13 @@
 from source.systems.power_grid import power_grid
-from source.entities.corn import corn
-from source.entities.turnip import turnip
-from source.entities.tomato import tomato
-from source.entities.potato import potato
-from source.entities.npc import npc
-from source.entities.solar_panel import solar_panel
-from source.entities.battery import battery
-from source.entities.lightbulb import lightbulb
-from source.entities.rock import rock
+from source.entities.plant.corn import corn
+from source.entities.plant.turnip import turnip
+from source.entities.plant.tomato import tomato
+from source.entities.plant.potato import potato
+from source.entities.human.npc import npc
+from source.entities.electronic.solar_panel import solar_panel
+from source.entities.electronic.battery import battery
+from source.entities.electronic.lightbulb import lightbulb
+from source.entities.inanimate.rock import rock
 
 class Model:
     entities        = []

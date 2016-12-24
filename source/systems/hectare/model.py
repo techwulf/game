@@ -1,4 +1,4 @@
-from source.entities.tile import tile
+from source.entities.inanimate.tile import tile
 
 class Model:
     parent      = None

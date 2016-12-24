@@ -52,7 +52,7 @@ class Model(model.Model):
         return False
 
     def mine(self):
-        from source.entities.rock import rock
+        from source.entities.inanimate.rock import rock
         ore = rock.Rock(self.parent.homestead)
         self.parent.homestead.entities.append(ore)
         self.pickup(ore)

@@ -2,7 +2,7 @@ from source.global_variables import global_variables, camera
 #from source.interface import instructions
 from source.systems.kilometer import kilometer
 from source.systems.homestead import homestead
-from source.entities.avatar import avatar
+from source.entities.human.avatar import avatar
 
 class Model:
     position        = (0, 0)

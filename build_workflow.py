@@ -2,9 +2,9 @@
 
 from source.abstract.chemistry.minerals import bauxite
 from source.abstract.chemistry.minerals import ice
-from source.entities.elemental_storage_unit import elemental_storage_unit
-from source.entities.refinery import refinery
-from source.entities.replicator import replicator
+from source.entities.electronic.elemental_storage_unit import elemental_storage_unit
+from source.entities.electronic.refinery import refinery
+from source.entities.electronic.replicator import replicator
 
 if __name__ == "__main__":
     esu        = elemental_storage_unit.ElementalStorageUnit()
