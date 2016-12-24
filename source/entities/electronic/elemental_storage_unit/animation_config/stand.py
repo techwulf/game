@@ -1,5 +1,5 @@
 stand_data = {
-    "entity_name" : "elemental_storage_tank",
+    "entity_name" : "elemental_storage_unit",
     "action" : "stand",
     "animations" : [
         {

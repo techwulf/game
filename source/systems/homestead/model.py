@@ -24,20 +24,6 @@ class Model:
     def __init__(self):
         self.power_grid = power_grid.PowerGrid()
 
-        self.logistics = logistics.Logistics(self)
-        self.logistics.refinery.position.x = 0
-        self.logistics.refinery.position.y = 400
-        self.logistics.elemental_storage_unit.position.x = 100
-        self.logistics.elemental_storage_unit.position.y = 400
-        self.logistics.replicator.position.x = 200
-        self.logistics.replicator.position.y = 400
-
-        x = 0
-        for tank in self.logistics.elemental_storage_unit.tanks:
-            self.logistics.elemental_storage_unit.tanks[tank].position.x = x
-            self.logistics.elemental_storage_unit.tanks[tank].position.y = 500
-            x += 50
-
         self.rock = rock.Rock(self)
         self.rock.position.x = 0
         self.rock.position.y = 300
@@ -82,6 +68,20 @@ class Model:
         self.npc = npc.NPC(self)
         self.npc.position.x = 0
         self.npc.position.y = 200
+
+        self.logistics = logistics.Logistics(self)
+        self.logistics.refinery.position.x = 0
+        self.logistics.refinery.position.y = 400
+        self.logistics.elemental_storage_unit.position.x = 100
+        self.logistics.elemental_storage_unit.position.y = 400
+        self.logistics.replicator.position.x = 200
+        self.logistics.replicator.position.y = 400
+
+        x = 0
+        for tank in self.logistics.elemental_storage_unit.tanks:
+            self.logistics.elemental_storage_unit.tanks[tank].position.x = x
+            self.logistics.elemental_storage_unit.tanks[tank].position.y = 500
+            x += 50
 
         self.entities = [
             self.rock,
