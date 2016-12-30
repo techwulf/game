@@ -1,4 +1,4 @@
-from source.abstract.entities.inanimate import model
+from source.abstract.entities.inanimate.electronic import model
 
 from datetime import datetime, timedelta
 

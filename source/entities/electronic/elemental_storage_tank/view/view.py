@@ -1,4 +1,4 @@
-from source.abstract.entities.inanimate.view import view
+from source.abstract.entities.inanimate.electronic.view import view
 from ..model import model
 from source.action import action
 

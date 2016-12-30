@@ -1,4 +1,4 @@
-from source.abstract.entities.inanimate.model import model
+from source.abstract.entities.inanimate.electronic.model import model
 
 from source.entities.electronic.elemental_storage_tank import elemental_storage_tank
 

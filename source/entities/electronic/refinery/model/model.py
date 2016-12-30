@@ -1,4 +1,4 @@
-from source.abstract.entities.inanimate.model import model
+from source.abstract.entities.inanimate.electronic.model import model
 
 class Model(model.Model):
     def __init__(self, parent = None):
